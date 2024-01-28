@@ -7,19 +7,20 @@
         private string sex;
         private string breed;
         private double weight;
+        private string type;
 
-        public Pet() { }
-
-        public Pet(string name, DateTime dateOfBirth, string sex, string breed, double weight)
+        public Pet(string type, string name, DateTime dateOfBirth, string sex, string breed, double weight)
         {
             this.name = name;
             this.dateOfBirth = dateOfBirth;
             this.sex = sex;
             this.breed = breed;
             this.weight = weight;
+            this.type = type;
         }
 
-       public int GetAge() {
+        public int GetAge()
+        {
 
             DateTime currentDate = DateTime.Now;
             int age = currentDate.Year - dateOfBirth.Year;
@@ -34,15 +35,45 @@
 
         public string GetName()
         {
-
             return name;
         }
 
-
-        public string GetInfo() {
-
-            return ToString();
-
+        public string GetType()
+        { 
+            return type; 
         }
+
+        public string GetSex()
+        { 
+            return sex; 
+        }
+
+        public double GetWeight() 
+        { 
+            return weight; 
+        }
+
+        public string  GetBreed() 
+        { 
+            return breed; 
+        }
+
+        public string GetInfo()
+        {
+            string type = GetType();
+            if (type == "Dog")
+            {
+                type = "IMPOSTER";
+            }
+
+            return $"Pets' information:" +
+                $"\n 1) Type: {type}" +
+                $"\n 2) Name: {GetName()}" +
+                $"\n 3) Sex: {GetSex()}" +
+                $"\n 4) Age: {GetAge()} years old" +
+                $"\n 5) Weight: {GetWeight()} kg" +
+                $"\n 6) Breed: {GetBreed()}";
+        }
+
     }
 }
