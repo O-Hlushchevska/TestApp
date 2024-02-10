@@ -6,7 +6,8 @@ Pet cat3 = new Pet("Cat", "Merly", new DateTime(2018, 11, 03), "Female", "Britis
 Pet cat4 = new Pet("Cat", "Mira", new DateTime(2023, 8, 01), "Female", "British", 1.69);
 Pet doggy = new Pet("Dog", "Eva", new DateTime(2015, 12, 09), "Female", "British", 50.54);
 
-Console.WriteLine(cat1.GetInfo()+ "\n");
+
+Console.WriteLine($"{cat1.GetInfo()}\n");
 Console.WriteLine(cat2.GetInfo() + "\n");
 Console.WriteLine(doggy.GetInfo() + "\n");
 Console.WriteLine(cat3.GetInfo() + "\n");

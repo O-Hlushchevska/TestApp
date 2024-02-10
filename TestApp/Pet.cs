@@ -19,6 +19,11 @@
             this.type = type;
         }
 
+        public Pet(DateTime dateOfBirth)
+        {
+            this.dateOfBirth = dateOfBirth;
+        }
+
         public int GetAge()
         {
 
@@ -30,7 +35,6 @@
             }
 
             return age;
-
         }
 
         public string GetName()
@@ -39,23 +43,23 @@
         }
 
         public string GetType()
-        { 
-            return type; 
+        {
+            return type;
         }
 
         public string GetSex()
-        { 
-            return sex; 
+        {
+            return sex;
         }
 
-        public double GetWeight() 
-        { 
-            return weight; 
+        public double GetWeight()
+        {
+            return weight;
         }
 
-        public string  GetBreed() 
-        { 
-            return breed; 
+        public string GetBreed()
+        {
+            return breed;
         }
 
         public string GetInfo()
@@ -68,11 +72,11 @@
 
             return $"Pets' information:" +
                 $"\n 1) Type: {type}" +
-                $"\n 2) Name: {GetName()}" +
+                $"\n 2) Name: {name}" +
                 $"\n 3) Sex: {GetSex()}" +
                 $"\n 4) Age: {GetAge()} years old" +
                 $"\n 5) Weight: {GetWeight()} kg" +
-                $"\n 6) Breed: {GetBreed()}";
+                $"\n 6) Breed: {breed}";
         }
 
     }
