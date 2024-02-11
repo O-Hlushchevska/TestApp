@@ -4,12 +4,28 @@
     {
         public static int population = 0;
 
-        public string name;
+        private string name;
         private DateTime dateOfBirth;
         private string sex;
         private string breed;
         private double weight;
         private string type;
+
+        public double Weight
+        {
+            get 
+            { 
+                return weight; 
+            }
+        }
+
+        public string Name 
+        { 
+            get 
+            { 
+                return name; 
+            } 
+        }
 
         public Pet(string type, string name, DateTime dateOfBirth, string sex, string breed, double weight)
         {
@@ -37,7 +53,6 @@
             {
                 age--;
             }
-
             return age;
         }
 
