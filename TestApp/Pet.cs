@@ -58,6 +58,9 @@
                 $"\n 5) Weight: {Weight} kg" +
                 $"\n 6) Breed: {breed}";
         }
-
+        public override string ToString()
+        {
+            return $"{Name}, {GetAge()} years, {Weight} kg";
+        }
     }
 }
