@@ -30,7 +30,7 @@ Console.WriteLine($"{doggy.GetInfo()}");
 //number = 45;
 //boxedNumber = 20;
 //number = (int) boxedNumber;
-//number = 0;
+//number = 0;;
 
 void WriteFoodInfo(Pet pet, Food food1, Food food2, Food food3)
 {
