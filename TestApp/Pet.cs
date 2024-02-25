@@ -2,6 +2,8 @@
 {
     public class Pet
     {
+        public static bool shouldPrint = true;
+
         public static int population = 0;
 
         private DateTime dateOfBirth;
@@ -22,13 +24,15 @@
             Weight = weight;
             this.type = type;
             population++;
-            Console.WriteLine($"A new pet has been born. You have {population} pets");
+            if (shouldPrint)
+                Console.WriteLine($"A new pet has been born. You have {population} pets");
         }
 
         ~Pet()
         {
             population--;
-            Console.WriteLine($"Pet {Name} is gone. You have {population} pets left");
+            if (shouldPrint)
+                Console.WriteLine($"Pet {Name} is gone. You have {population} pets left");
         }
 
         public int GetAge()
