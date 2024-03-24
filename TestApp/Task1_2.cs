@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TestApp
 {
-    public class Task_1_2
+    public class Task1_2
     {
-        public static void Test()
+        public static void TestClasses()
         {
             Pet cat1 = CatFactory.Mara;
             Pet cat2 = CatFactory.Mammi;
@@ -23,11 +23,12 @@ namespace TestApp
 
             void CatKilling()
             {
-                Pet cat5 = new Pet("Cat", "deadpet1", new DateTime(1980, 8, 25), "Female", "British", 5.54);
+                Pet cat5 = new Pet(Pet.PetType.Cat, "deadpet1", new DateTime(1980, 8, 25), "Female", "British", 5.54);
+                cat5.Dispose();
             }
 
             CatKilling();
-            GC.Collect();
+            //GC.Collect();
 
             Console.WriteLine($"{cat1.GetInfo()}");
             Console.WriteLine($"{cat2.GetInfo()}");
@@ -41,18 +42,6 @@ namespace TestApp
             //boxedNumber = 20;
             //number = (int) boxedNumber;
             //number = 0;;
-
-            void WriteFoodInfo(Pet pet, Food food1, Food food2, Food food3)
-            {
-                Console.WriteLine($"\nDaily food portion for {pet.Name} \n\t   is {food1.DailyPortion(pet):f3} grams of {food1.Name}. Expiration date: {food1.GetExpirationDate()}");
-                Console.WriteLine($"\tor is {food2.DailyPortion(pet):f3} grams of {food2.Name}. Expiration date: {food2.GetExpirationDate()}");
-                Console.WriteLine($"\tor is {food3.DailyPortion(pet):f3} grams of {food3.Name}. Expiration date: {food3.GetExpirationDate()}");
-            }
-
-            WriteFoodInfo(cat1, food1, food2, food3);
-            WriteFoodInfo(cat2, food1, food2, food3);
-            WriteFoodInfo(cat3, food1, food2, food3);  
-            WriteFoodInfo(cat4, food1, food2, food3);
         }
     }
 }

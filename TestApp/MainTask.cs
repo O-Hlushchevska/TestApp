@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using TestApp;
 
-Pet.shouldPrint = false;
+Pet.shouldPrint = true;
 
-Task3_1.Test();
+Task1_2.TestClasses();
+
+Task3_1.TestArrays();
+//Task3_2.TestCollections();
