@@ -1,19 +1,29 @@
-﻿namespace TestApp
+﻿using System.Linq;
+
+namespace TestApp
 {
-    public class Pet
+    public class Pet:IDisposable
     {
+        public enum PetType
+        {
+            Cat,
+            Dog
+        }
+
+        public static bool shouldPrint = true;
+
         public static int population = 0;
 
         private DateTime dateOfBirth;
         private string sex;
         private string breed;
-        private string type;
+        private PetType type;
 
         public double Weight { get; set; }
 
         public string Name { get; set; }
 
-        public Pet(string type, string name, DateTime dateOfBirth, string sex, string breed, double weight)
+        public Pet(PetType type, string name, DateTime dateOfBirth, string sex, string breed, double weight)
         {
             Name = name;
             this.dateOfBirth = dateOfBirth;
@@ -22,13 +32,22 @@
             Weight = weight;
             this.type = type;
             population++;
-            Console.WriteLine($"A new pet has been born. You have {population} pets");
+            //if (shouldPrint)
+            //    Console.WriteLine($"A new pet has been born. You have {population} pets");
         }
 
-        ~Pet()
+        //~Pet()
+        //{
+        //    population--;
+        //    if (shouldPrint)
+        //        Console.WriteLine($"Pet {Name} is gone. You have {population} pets left");
+        //}
+
+        public void Dispose() 
         {
             population--;
-            Console.WriteLine($"Pet {Name} is gone. You have {population} pets left");
+            if (shouldPrint)
+                Console.WriteLine($"Pet {Name} is gone. You have {population} pets left");
         }
 
         public int GetAge()
@@ -44,11 +63,16 @@
 
         public string GetInfo()
         {
-            string type = this.type;
-            if (type == "Dog")
+            string type = "Unknown";
+            switch (this.type)
             {
-                type = "IMPOSTER";
-            }
+                case PetType.Cat:
+                    type = "Cat";
+                    break;
+                case PetType.Dog:
+                    type = "IMPOSTER";
+                    break;
+            };
 
             return $"\n Pets' information:" +
                 $"\n 1) Type: {type}" +
@@ -58,6 +82,9 @@
                 $"\n 5) Weight: {Weight} kg" +
                 $"\n 6) Breed: {breed}";
         }
-
+        public override string ToString()
+        {
+            return $"{Name}, {GetAge()} years, {Weight} kg";
+        }
     }
 }

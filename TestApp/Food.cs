@@ -2,32 +2,31 @@
 {
     public class Food
     {
-        private float unitWeight;
-        private int quantity;
-        private double packageWeight;
-        private char typeOfFood;
-        private DateTime expirationDate;
-        private double nutrition;
+        public enum TypeOfFood
+        {
+            Pashtetik,
+            Kormik,
+            Smakolyk
+        }
 
-        public string Name { get; set; }
+
+        public enum FoodSpeciality
+        {
+            Wet,
+            Dry
+        }
+
+        private FoodSpeciality speciality;
+        private TypeOfFood typeOfFood;
+        private DateTime expirationDate;
 
         public bool IsSpoiled => expirationDate > DateTime.Now;
 
-        public Food(string name, float unitWeight, int quantity, char typeOfFood, double nutrition, DateTime expirationDate)
+        public Food(TypeOfFood typeOfFood, FoodSpeciality speciality, DateTime expirationDate)
         {
-            Name = name;
-            this.unitWeight = unitWeight;
-            this.quantity = quantity;
-            packageWeight = Convert.ToDouble(quantity) * Convert.ToDouble(unitWeight);
             this.typeOfFood = typeOfFood;
-            this.nutrition = nutrition;
+            this.speciality = speciality;
             this.expirationDate = expirationDate;
-        }
-
-        public double DailyPortion(Pet eater)
-        {
-            double requiredFoodWeight = eater.Weight * nutrition;
-            return requiredFoodWeight / Convert.ToDouble(unitWeight);
         }
 
         public string GetExpirationDate()
